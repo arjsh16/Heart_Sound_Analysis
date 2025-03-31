@@ -13,7 +13,7 @@ This project analyzes heart sound signals using Fast Fourier Transform (FFT) and
 ## Project Structure
 ```
 Heart_Sound_Analysis/
-│── data/
+│── data/7-adults-heart-sounds.mp3
 │   ├── heart_sound.wav  # Sample heart sound file
 │── src/
 │   ├── preprocess.py  # Signal loading & preprocessing
