@@ -1,6 +1,5 @@
 import math
 import cmath
-import time
 
 # Pad a signal to the next power of 2 length
 def pad_to_power_of_two(signal):
@@ -12,34 +11,6 @@ def pad_to_power_of_two(signal):
         signal = list(signal)
         
     return signal + [0] * (next_power - n)
-
-# Original Discrete Fourier Transform (DFT)
-def compute_dft(signal):
-    N = len(signal)
-    dft_signal = []
-    for k in range(N):
-        real_part = 0
-        imag_part = 0
-        for n in range(N):
-            angle = -2 * math.pi * k * n / N
-            real_part += signal[n] * math.cos(angle)
-            imag_part += signal[n] * math.sin(angle)
-        dft_signal.append(complex(real_part, imag_part))
-    return dft_signal
-
-# Original Inverse Discrete Fourier Transform (IDFT)
-def compute_idft(dft_signal):
-    N = len(dft_signal)
-    idft_signal = []
-    for n in range(N):
-        real_part = 0
-        imag_part = 0
-        for k in range(N):
-            angle = 2 * math.pi * k * n / N
-            real_part += dft_signal[k].real * math.cos(angle) - dft_signal[k].imag * math.sin(angle)
-            imag_part += dft_signal[k].real * math.sin(angle) + dft_signal[k].imag * math.cos(angle)
-        idft_signal.append(real_part / N)  # Normalize by N
-    return idft_signal
 
 # Compute frequency bins
 def compute_freqs(N, sample_rate):
